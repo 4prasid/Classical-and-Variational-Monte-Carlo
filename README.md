@@ -1,9 +1,17 @@
-# Classical-and-Variational-Monte-Carlo
+# Classical-and-Variational-Monte-Carlo (CMC and VMC)
 
 Author - Prasid
 
-# Classical and Variational Monte Carlo
-This project explores the application of Classical and Variational Monte Carlo (VMC) methods to various physical systems. It provides implementations and examples of these powerful simulation techniques.
+# Project Overview
+This repository showcases simple, instructive implementations of Classical Monte Carlo (CMC) and Variational Monte Carlo (VMC) methods applied to physics problems. The examples highlight key concepts such as random sampling, Metropolis–Hastings algorithms, and statistical estimation.
+
+The included code demonstrates:
+
+- Applications in classical statistical mechanics (e.g., Ising-like systems).
+
+- Quantum ground-state estimation using the variational principle.
+
+These implementations aim to provide clear, educational insight into core Monte Carlo techniques and their use in both classical and quantum contexts
 
 # Description
 The goal of this repository is to demonstrate the core principles and practical applications of Monte Carlo methods in physics. The project is divided into two main parts:
