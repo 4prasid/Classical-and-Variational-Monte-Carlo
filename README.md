@@ -27,6 +27,22 @@ Key Concepts:
 
 - Variational Principle: In quantum mechanics, this principle states that the expectation value of the Hamiltonian for any trial wavefunction is always greater than or equal to the true ground state energy.
 
+# Features
+
+- Classical Monte Carlo:
+
+  - Metropolis-Hastings for lattice/spin systems
+
+  - Estimation of thermodynamic observables: energy, magnetization, heat capacity, susceptibility
+
+  - Equilibration and sampling workflows (burn-in, decorrelation, block/statistical error)
+
+- Variational Monte Carlo:
+  - Trial wavefunctions with tunable parameters.
+  - Local energy estimator $$E_L = (H \\Psi_T)/ \\Psi_T$$ .
+  - Metropolis sampling proportional to $$|\\Psi_T|^2$$ .
+  - Variational optimization of parameters (grid search, basic gradient-free schemes).
+
 # Implemented Methods
 
 ## Classical Monte Carlo (CMC)
