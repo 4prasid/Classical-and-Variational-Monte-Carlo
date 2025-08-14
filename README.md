@@ -21,7 +21,7 @@ The goal of this repository is to demonstrate the core principles and practical 
 - Variational Monte Carlo: Tackling quantum mechanical problems to find approximate ground state energies.
 
 Key Concepts:
-- Monte Carlo Integration: A numerical method that uses random sampling to compute integrals, especially useful in high-dimensional spaces, and complexe integrals.
+- Monte Carlo Integration: A numerical method that uses random sampling to compute integrals, especially useful in high-dimensional spaces and complex integrals.
 
 - Metropolis Algorithm: A cornerstone of Monte Carlo simulations, this algorithm generates a sequence of random samples from a probability distribution.
 
@@ -39,7 +39,7 @@ Key Concepts:
 
 - Variational Monte Carlo:
   - Trial wavefunctions with tunable parameters.
-  - Local energy estimator $$E_L = (H \\Psi_T)/ \\Psi_T$$ .
+  - Local energy estimator $$E_L = \frac{H\Psi_T}{\Psi_T}$$ .
   - Metropolis sampling proportional to $$|\\Psi_T|^2$$ .
   - Variational optimization of parameters (grid search, basic gradient-free schemes).
 
