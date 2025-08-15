@@ -48,20 +48,55 @@ Key Concepts:
 ## Classical Monte Carlo (CMC)
 This section applies Monte Carlo methods to classical systems. A common example often used to illustrate these methods is the 2D Ising Model, which simulates ferromagnetism. The simulation typically involves:
 
-1. Generating random numbers to propose changes to the system's state.
+- Sample from Boltzmann distribution $$P(s) \\propto exp(-\\beta E(s))$$ for a classical system (e.g., Ising spins).
 
-2. Using the Metropolis-Hastings algorithm to accept or reject these changes based on the system's energy.
+- Algorithm (Metropolis-Hastings):
 
-3. Calculating thermodynamic quantities like energy, magnetization, and specific heat.
+  - Propose a local change (e.g., flip a spin).
+
+  - Compute $$\\Delta E$$ .
+
+  - Accept with probability $$min(1, exp(-\\beta \\Delta E))$$ .
+
+  - After equilibration, accumulate observables like Energy $$(E)$$, Magnetization $$(M)$$, Specific Heat $$(C_v)$$, Susceptibility $$(\\chi)$$ and estimate uncertainties.
 
 ## Variational Monte Carlo (VMC)
 VMC is a quantum Monte Carlo method used to approximate the ground state of a quantum system. The general algorithm involves:
 
-1. **Defining a Trial Wavefunction**: A parameterized trial wavefunction, $$\Psi_T(\alpha) $$ is chosen. The parameter $$\alpha$$ is what will be "varied" to find the best approximation.
+- Variational principle: For any normalized trial $$\Psi_T(\alpha)$$, $$E(\alpha)= \frac{<\Psi_T|H|\Psi_T>}{<\Psi_T|\Psi_T>} \geq E_0$$ .
+- Sample configurations R from $$|\Psi_T(R; \alpha)|^2$$ via Metropolis.
+- For a given configuration of particles, the local energy, $$E_L$$, is calculated as:
+$$E_L = \frac{H\Psi_T}{\Psi_T}$$.
+- Estimate $$E(\alpha) = <E_L>$$ and Var($$E_L$$); minimize $$E(\alpha)$$ over $$\alpha$$ (and possibly $$\beta$$, ...).
+- Typical Trial Wavefunctions:
+  - Harmonic oscillator: Gaussian with parameter $$\alpha$$.
+  - Interacting particles: Gaussian orbitals times a Jastrow correlation factor with parameters $$(\alpha, \beta)$$.
+ 
+## Educational Notes
+- Why Metropolis works: It enforces detailed balance with respect to the target distribution via acceptance probability min(1, $$\frac{p(new)}{p(old)}$$).
 
-2. **Calculating the Local Energy**: For a given configuration of particles, the local energy, $$E_L$$, is calculated as:
-$$E_L = \frac{H\Psi_T}{\Psi_T}$$
+- Why VMC is powerful: It converts high-dimensional integrals for ⟨H⟩ into Monte Carlo averages over $$|\Psi_T|^2$$, making ground-state estimation tractable for suitable ansätze.
 
-3. **Monte Carlo Sampling**: The Metropolis algorithm is used to sample configurations of the system according to the probability distribution $$|\Psi_T|^2$$.
+- Practical tip: Tune the proposal step size to achieve a balanced acceptance rate; too small leads to slow exploration, too large to many rejections.
 
-4. **Optimization**: The expectation value of the Hamiltonian is calculated and minimized by adjusting the variational parameters $$(\alpha)$$ in the trial wavefunction. 
+
+## Known Limitations
+- Basic optimizers: Current setup may rely on parameter scans rather than advanced gradient-based or SR optimization.
+- Finite-size effects in CMC: results depend on L; critical behavior requires care.
+- Autocorrelation handling is simple; for high precision, implement blocking/jackknife in depth.
+
+## Contributing
+- Open issues for bugs, feature requests, or clarifications.
+
+- Submit pull requests with:
+
+  - Clear description of changes.
+  - Tests or example runs (if applicable).
+  - Updated docs/README sections.
+ 
+## Getting Help
+- For conceptual questions: open an issue describing the system, parameters, and observed behavior.
+
+- For implementation issues: include Python version, dependencies, command used, and a minimal reproducible example.
+
+
