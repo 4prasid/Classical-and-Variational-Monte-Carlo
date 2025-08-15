@@ -72,7 +72,7 @@ $$E_L = \frac{H\Psi_T}{\Psi_T}$$.
   - Harmonic oscillator: Gaussian with parameter $$\alpha$$.
   - Interacting particles: Gaussian orbitals times a Jastrow correlation factor with parameters $$(\alpha, \beta)$$.
  
-## Educational Notes
+# Educational Notes
 - Why Metropolis works: It enforces detailed balance with respect to the target distribution via acceptance probability min(1, $$\frac{p(new)}{p(old)}$$).
 
 - Why VMC is powerful: It converts high-dimensional integrals for ⟨H⟩ into Monte Carlo averages over $$|\Psi_T|^2$$, making ground-state estimation tractable for suitable ansätze.
@@ -80,12 +80,12 @@ $$E_L = \frac{H\Psi_T}{\Psi_T}$$.
 - Practical tip: Tune the proposal step size to achieve a balanced acceptance rate; too small leads to slow exploration, too large to many rejections.
 
 
-## Known Limitations
+# Known Limitations
 - Basic optimizers: Current setup may rely on parameter scans rather than advanced gradient-based or SR optimization.
 - Finite-size effects in CMC: results depend on L; critical behavior requires care.
 - Autocorrelation handling is simple; for high precision, implement blocking/jackknife in depth.
 
-## Contributing
+# Contributing
 - Open issues for bugs, feature requests, or clarifications.
 
 - Submit pull requests with:
@@ -94,9 +94,23 @@ $$E_L = \frac{H\Psi_T}{\Psi_T}$$.
   - Tests or example runs (if applicable).
   - Updated docs/README sections.
  
-## Getting Help
+# Getting Help
 - For conceptual questions: open an issue describing the system, parameters, and observed behavior.
 
 - For implementation issues: include Python version, dependencies, command used, and a minimal reproducible example.
+
+# How to Cite
+
+If this repository is used in academic or educational work, and you feel it helped you then cite as:
+
+- Author: Prasid
+
+- Title: Classical and Variational Monte Carlo
+
+- URL: (this repository)
+
+- Version/commit: (commit hash)
+
+Optionally add standard references on Monte Carlo and VMC in your own work.
 
 
